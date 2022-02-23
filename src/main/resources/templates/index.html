@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org/"
+>
+<head>
+    <meta charset="UTF-8" />
+    <title>Farmacia Haniewicz</title>
+    <link rel="stylesheet" href="/static/css/index.css" />
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+    />
+
+    <link
+            href="https://fonts.googleapis.com/css?family=Raleway:400,600"
+            rel="stylesheet"
+    />
+</head>
+<body>
+<!-- HEADER -->
+<header class="encabezado">
+    <div class="logo__div">
+        <img class="logo" src="/static/img/farmacia.png" alt="" />
+        <div class="container-fluid">
+            <form class="d-flex">
+                <input class="form-control me-2 " type="search" placeholder="Buscar un Producto" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+
+            <button class="btn btn-success">
+                Ingresar
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                </svg>
+            </button>
+            <button
+                    class="btn btn-success position-relative"
+                    type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"
+                    data-bs-whatever="Carrito">
+                Carrito
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"> <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+               5
+             </span>
+            </button>
+
+        </div>
+    </div>
+
+</header>
+
+<div class="navegacion">
+    <nav>
+        <ul>
+            <li>
+                <a href="#">INICIO<span class="icon icon-up-dir"></span></a>
+
+                <div class="submenu">
+                    <div class="submenu-items">
+                        <p style="color: white">SUCURSALES</p>
+                        <ul>
+                            <li><a href="#">Haniewicz I</a></li>
+                            <li><a href="#">Punto Farmacia II</a></li>
+                            <li><a href="#">Haniewicz III</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <p style="color: white">NOSOTROS</p>
+                        <ul>
+                            <li><a href="#">Nuestra Empresa</a></li>
+                            <li><a href="#">Preguntas Frecuentes</a></li>
+                            <li><a href="#">Trabaja con Nosotros</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">BELLEZA<span class="icon icon-up-dir"></span></a>
+
+                <div class="submenu">
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="MAQUILLAJE"
+                        >
+                            MAQUILLAJE
+                        </button>
+                        <ul>
+                            <li><a href="#">Labios</a></li>
+                            <li><a href="#">Ojos</a></li>
+                            <li><a href="#">Rostro</a></li>
+                            <li><a href="#">Uñas</a></li>
+                            <li><a href="#">Accesorios</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Perfumes y Fragancias"
+                        >
+                            PERFUMES Y FRAGANCIAS
+                        </button>
+                        <ul>
+                            <li><a href="#">Hombres</a></li>
+                            <li><a href="#">Mujeres</a></li>
+                            <li><a href="#">Infantiles</a></li>
+                            <li><a href="#">Importados</a></li>
+                            <li><a href="#">Colonias y Body Splash</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Cuidado del Pelo"
+                        >
+                            CUIDADO DEL PELO
+                        </button>
+                        <ul>
+                            <li><a href="#">Coloracion</a></li>
+                            <li><a href="#">Shampoos</a></li>
+                            <li><a href="#">Acondicionadores</a></li>
+                            <li><a href="#">Tratamientos</a></li>
+                            <li><a href="#">Accesorios</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <a href="#"
+                >DERMOCOSMETICA <span class="icon icon-up-dir"></span
+                ></a>
+
+                <div class="submenu">
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Rostro"
+                        >
+                            ROSTRO
+                        </button>
+                        <ul>
+                            <li><a href="#">Agua Termal</a></li>
+                            <li><a href="#">Anti-Acne</a></li>
+                            <li><a href="#">Anti-Edad</a></li>
+                            <li><a href="#">Anti-Manchas</a></li>
+                            <li><a href="#">Hidratacion</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Corporal"
+                        >
+                            CORPORAL
+                        </button>
+                        <ul>
+                            <li><a href="#">Piel Atopica</a></li>
+                            <li><a href="#">Piel Seca</a></li>
+                            <li><a href="#">Anti-Celuliticos</a></li>
+                            <li><a href="#">Higiene</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Solar"
+                        >
+                            SOLAR
+                        </button>
+                        <ul>
+                            <li><a href="#">Rostro</a></li>
+                            <li><a href="#">Cuerpo</a></li>
+                            <li><a href="#">Autobronceantes</a></li>
+                            <li><a href="#">Post Solar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Pelo"
+                        >
+                            PELO
+                        </button>
+                        <ul>
+                            <li><a href="#">Shampoos y Acondicionadores</a></li>
+                            <li><a href="#">Bálsamos y Tratamientos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <a href="#"
+                >CUIDADO PERSONAL<span class="icon icon-up-dir"></span
+                ></a>
+
+                <div class="submenu">
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Cuidado de la Piel"
+                        >
+                            CUIDADO DE LA PIEL
+                        </button>
+                        <ul>
+                            <li><a href="#">Corporales</a></li>
+                            <li><a href="#">Faciales</a></li>
+                            <li><a href="#">Solares</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Cuidado Oral"
+                        >
+                            CUIDADO ORAL
+                        </button>
+                        <ul>
+                            <li><a href="#">Pasta Dental</a></li>
+                            <li><a href="#">Enjuagues Bucales</a></li>
+                            <li><a href="#">Ortodoncia</a></li>
+                            <li><a href="#">Cepillos Dentales</a></li>
+                            <li><a href="#">Tabletas Limpiadoras y Adhesivos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Higiene Personal"
+                        >
+                            HIGIENE PERSONAL
+                        </button>
+                        <ul>
+                            <li><a href="#">Desodorantes</a></li>
+                            <li><a href="#">Proteccion Femenina</a></li>
+                            <li><a href="#">Jabones y Ducha</a></li>
+                            <li><a href="#">Afeitado y Depilacion</a></li>
+                            <li><a href="#">Complementos de Higiene</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Adultos"
+                        >
+                            ADULTOS
+                        </button>
+                        <ul>
+                            <li><a href="#">Incontinencia</a></li>
+                            <li><a href="#">Pañales y Ropa Interior</a></li>
+                            <li><a href="#">Toallas Humedas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">BEBES<span class="icon icon-up-dir"></span></a>
+                <div class="submenu">
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Nutricion Infantil"
+                        >
+                            NUTRICION INFANTIL
+                        </button>
+                        <ul>
+                            <li><a href="#">Alimentos Infantiles</a></li>
+                            <li><a href="#">Leches y Formulas</a></li>
+                            <li><a href="#">Accesorios</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Cuidado del Bebe"
+                        >
+                            CUIDADO DEL BEBE
+                        </button>
+                        <ul>
+                            <li><a href="#">Chupetes y Mordillos</a></li>
+                            <li><a href="#">Repelentes Infantiles</a></li>
+                            <li><a href="#">Accesorios</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Lactancia"
+                        >
+                            LACTANCIA
+                        </button>
+                        <ul>
+                            <li><a href="#">Mamaderas y Tetinas</a></li>
+                            <li><a href="#">Esterilizadores</a></li>
+                            <li><a href="#">Sacaleches y Accesorios</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Maternidad"
+                        >
+                            MATERNIDAD
+                        </button>
+                        <ul>
+                            <li><a href="#">Apositos y Protectores Mamarios</a></li>
+                            <li><a href="#">Cremas</a></li>
+                            <li><a href="#">Fajas</a></li>
+                            <li><a href="#">Pezoneras</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Higiene del Bebe"
+                        >
+                            HIGIENE DEL BEBE
+                        </button>
+                        <ul>
+                            <li><a href="#">Pañales</a></li>
+                            <li><a href="#">Toallas Húmedas</a></li>
+                            <li><a href="#">Oleos y Algodón</a></li>
+                            <li><a href="#">Baño del Bebé</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">ELECTRO <span class="icon icon-up-dir"></span></a>
+
+                <div class="submenu">
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Electro Belleza"
+                        >
+                            ELECTRO BELLEZA
+                        </button>
+                        <ul>
+                            <li><a href="#">Cortadoras y Afeitadoras</a></li>
+                            <li><a href="#">Masajeadores y Exfoliadores</a></li>
+                            <li><a href="#">Planchas y Bucleras</a></li>
+                            <li><a href="#">Secadores</a></li>
+                            <li><a href="#">Depiladoras</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Electro Salud"
+                        >
+                            ELECTRO SALUD
+                        </button>
+                        <ul>
+                            <li><a href="#">Tensiometros</a></li>
+                            <li><a href="#">Nebulizadores</a></li>
+                            <li><a href="#">Balanzas</a></li>
+                            <li><a href="#">Termómetros</a></li>
+                            <li><a href="#">Almohadillas Térmicas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <a href="#"
+                >BIENESTAR Y SALUD<span class="icon icon-up-dir"></span
+                ></a>
+
+                <div class="submenu">
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Nutricion y Deportes"
+                        >
+                            NUTRICION Y DEPORTES
+                        </button>
+                        <ul>
+                            <li><a href="#">Suplementos Dietarios</a></li>
+                            <li><a href="#">Suplementos Nutricionales</a></li>
+                            <li><a href="#">Suplementos Deportivos</a></li>
+                            <li><a href="#">Proteccion y Recuperación</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Farmacia"
+                        >
+                            FARMACIA
+                        </button>
+                        <ul>
+                            <li><a href="#">Primeros Auxilios</a></li>
+                            <li><a href="#">Diabetes</a></li>
+                            <li><a href="#">Celiaquia</a></li>
+                            <li><a href="#">Hipertensión</a></li>
+                            <li><a href="#">Productos de Ortopedia</a></li>
+                            <li><a href="#">Pediculosis</a></li>
+                            <li><a href="#">Pedicos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">SERVICIOS<span class="icon icon-up-dir"></span></a>
+
+                <div class="submenu">
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Medicamentos"
+                        >
+                            MEDICAMENTOS
+                        </button>
+                        <ul>
+                            <li><a href="#">Reservas y Envios de Medicamentos</a></li>
+                            <li><a href="#">Envios de Recetas</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Coberturas"
+                        >
+                            COBERTURAS
+                        </button>
+                        <ul>
+                            <li><a href="#">Obras Sociales y Prepagas</a></li>
+                            <li><a href="#">Programas de Laboratorios</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-items">
+                        <button
+                                type="button"
+                                class="btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalProducto"
+                                data-bs-whatever="Compra Online"
+                        >
+                            COMPRA ONLINE
+                        </button>
+                        <ul>
+                            <li><a href="#">Mis Pedidos</a></li>
+                            <li><a href="#">Costos de Envios</a></li>
+                            <li><a href="#">Medios de Pago</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<!-- BODY -->
+<!--2 -->
+<div id="carousel-ofertas" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img
+                    src="/static/img/WEB/1.png"
+                    class="d-block w-100"
+                    alt="/img/farma.jpg"
+            />
+        </div>
+        <div class="carousel-item">
+            <img
+                    src="/static/img/WEB/2.png"
+                    class="d-block w-100"
+                    alt="/img/farma.jpg"
+            />
+        </div>
+        <div class="carousel-item">
+            <img
+                    src="/static/img/WEB/3.png"
+                    class="d-block w-100"
+                    alt="/img/farma.jpg"
+            />
+        </div>
+    </div>
+    <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carousel-ofertas"
+            data-bs-slide="prev"
+    >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carousel-ofertas"
+            data-bs-slide="next"
+    >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<!-- Ver ofertas -->
+<section id="section3">
+    <h2 class="text-center">Nuestras ofertas</h2>
+    <div class="contenedorOfertas">
+        <div class="oferta">
+            <h5 class="text-center">50% DE DESCUENTO EN:</h5>
+            <div class="ofertas">
+                <div class="cajaOferta">
+                    <div class="header-oferta">
+                        <img src="/static/img/aspirina.png" alt="">
+                    </div>
+                    <div class="footer-oferta" >
+                        <p>Nombre producto</p>
+                        <p>Descripcion del producto:</p>
+                        <p>Precio:</p>
+                        <button class="btn btn-success">Agregar al carrito<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"> <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg></button>
+                    </div>
+                </div>
+                <div class="cajaOferta">
+                    <div class="header-oferta">
+                        <img src="/static/img/bago.webp" alt="">
+                    </div>
+                    <div class="footer-oferta" >
+                        <p>Nombre producto</p>
+                        <p>Descripcion del producto:</p>
+                        <p>Precio:</p>
+                        <button class="btn btn-success">Agregar al carrito<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"> <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg></button>
+                    </div>
+                </div>
+                <div class="cajaOferta">
+                    <div class="header-oferta">
+                        <img src="/static/img/derma.webp" alt="">
+                    </div>
+                    <div class="footer-oferta" >
+                        <p>Nombre producto</p>
+                        <p>Descripcion del producto:</p>
+                        <p>Precio:</p>
+                        <button class="btn btn-success">Agregar al carrito<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"> <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg></button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--prueba-->
+
+<div class="container mt-2">
+    <div class="row">
+
+        <tr th:each=" productos : ${product}">
+
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class=" card-header text-center">
+                        <label th:text="${productos.nombre}"></label>
+                    </div>
+                    <div class=" card-body">
+                        <i th:text="${productos.precio}"></i>
+                        <img  th:src="${productos.imagen}" width="200" height="180">
+                    </div>
+
+                    <div class=" card-footer text-center" >
+                        <label th:text="${productos.tamanio}"> </label>
+                        <div>
+                            <a th:href="@{/#}+'?id='+${productos.id}" class="btn btn-outline-info" >agregar carrito</a>
+                            <a href=""  class="btn btn-danger">comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </tr>
+
+
+    </div>
+
+</div>
+
+
+<!-- botones de aplicacion -->
+<div class="botones">
+    <div class="filaBotones">
+        <div class="boton">
+            <img src="/static/img/BOTONES WEB-02.png" alt="">
+        </div>
+        <div class="boton">
+            <img src="/static/img/BOTONES WEB-03.png" alt="">
+        </div>
+        <div class="boton">
+            <img src="/static/img/BOTONES WEB-05.png" alt="">
+        </div>
+        <div class="boton">
+            <img src="/static/img/BOTONES WEB-06.png" alt="">
+        </div>
+        <div class="boton">
+            <img src="/static/img/BOTONES WEB_Mesa de trabajo 1.png" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- banners -->
+<div class="banners">
+    <div class="contenedorBanner">
+        <div class="banner" style="background-image: url(/static/img/TUF-Novedades-760x240_desktop.jpg);">
+
+        </div>
+        <div class="banner" style="background-image: url(/static/img/Bienestar-sexual_febrero_Novedades_7_2_760-x-240_Desktop.jpg);">
+
+        </div>
+        <div class="banner" style="background-image: url(/static/img/MP_GTL_Novedades_760x240_Desktop.jpg);">
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Obras sociales -->
+<section id="4">
+    <div id="carousel-obras" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="obras-sociales">
+                    <div class="contenedor-obras">
+                        <div class="obras" style="background-color: rgb(243, 67, 173)">
+                            SIPPSA
+                        </div>
+                        <div class="obras" style="background-color: blue">GALENO</div>
+                        <div class="obras" style="background-color: burlywood">
+                            BOREAL
+                        </div>
+                        <div class="obras" style="background-color: cadetblue">
+                            OSDE
+                        </div>
+                        <div class="obras" style="background-color: rebeccapurple">
+                            NOBIS
+                        </div>
+                        <div class="obras" style="background-color: orange">
+                            PREVENCION SALUD
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="obras-sociales">
+                    <div class="contenedor-obras">
+                        <div class="obras" style="background-color: rgb(243, 67, 173)">
+                            SWISS MEDICAL
+                        </div>
+                        <div class="obras" style="background-color: rgb(153, 89, 5)">
+                            OSMEDICA
+                        </div>
+                        <div class="obras" style="background-color: rgb(0, 241, 20)">
+                            SANCOR
+                        </div>
+                        <div class="obras" style="background-color: rgb(47, 0, 255)">
+                            MEDIFE
+                        </div>
+                        <div class="obras" style="background-color: rgb(255, 208, 0)">
+                            OSPAT
+                        </div>
+                        <div class="obras" style="background-color: rgb(0, 174, 255)">
+                            SERVIRED
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carousel-obras"
+                data-bs-slide="prev"
+        >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carousel-obras"
+                data-bs-slide="next"
+        >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<!-- MODALES -->
+<!-- Modal de productos -->
+<div
+        class="modal fade"
+        id="modalProducto"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div
+                    class="modal-header"
+                    style="background-color: var(--colorPrincipal1)"
+            >
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="contenedorP" >
+                    <div class="prod">
+                        <div class="prodBody">
+                            <img src="/static/img/bago.webp" alt="" />
+                        </div>
+                        <div class="prodFooter">
+                            <p>Nombre</p>
+                            <p>Descripcion</p>
+                            <p>precio</p>
+                            <button type="button" class="btn btn-success" >Agregar al carrito</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div
+                    class="modal-footer"
+                    style="background-color: var(--colorPrincipal1)"
+            >
+                <button
+                        type="button"
+                        class="btn"
+                        style="background-color: var(--colorPrincipal2); color: white"
+                >
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Desplegar carrito -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header" style="background-color: var(--colorPrincipal1);">
+        <h5 id="offcanvasRightLabel">Mi carrito</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ol>
+            <li>
+                <div class="productoCarro">
+                    <div>
+                        <p>Producto uno</p>
+                        <p>Precio: $</p>
+                    </div>
+                    <button class="btn btn-danger btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        Borrar
+                    </button>
+                </div>
+            </li>
+            <hr>
+            <li>
+                <div class="productoCarro">
+                    <div>
+                        <p>Producto dos</p>
+                        <p>Precio: $</p>
+                    </div>
+                    <button class="btn btn-danger btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        Borrar
+                    </button>
+                </div>
+            </li>
+            <hr>
+
+            <li>
+                <div class="productoCarro">
+                    <div>
+                        <p>Producto tres</p>
+                        <p>Precio: $</p>
+                    </div>
+                    <button class="btn btn-danger btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        Borrar
+                    </button>
+                </div>
+            </li>
+            <hr>
+
+            <li>
+                <div class="productoCarro">
+                    <div>
+                        <p>Producto cuatro</p>
+                        <p>Precio: $</p>
+                    </div>
+                    <button class="btn btn-danger btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        Borrar
+                    </button>
+                </div>
+            </li>
+            <hr>
+
+            <li>
+                <div class="productoCarro">
+                    <div>
+                        <p>Producto cinco</p>
+                        <p>Precio: $</p>
+                    </div>
+                    <button class="btn btn-danger btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        Borrar
+                    </button>
+                </div>
+            </li>
+            <hr>
+
+        </ol>
+    </div>
+    <div class="d-grid gap-2 m-10">
+        <button class="btn btn-primary " type="button">Pagar</button>
+    </div>
+
+</div>
+
+
+<!-- ------------------------------------ -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://kit.fontawesome.com/95a85c7c51.js"
+        crossorigin="anonymous"
+></script>
+<!-- Capturar filtro -->
+<script>
+    var exampleModal = document.getElementById("modalProducto");
+    exampleModal.addEventListener("show.bs.modal", function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget;
+        // Extract info from data-bs-* attributes
+        var categoria = button.getAttribute("data-bs-whatever");
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalTitle = exampleModal.querySelector(".modal-title");
+        var modalBodyInput = exampleModal.querySelector(".modal-body input");
+
+        modalTitle.textContent = "Categoria: " + categoria;
+        modalBodyInput.value = categoria;
+    });
+</script>
+
+
+
+</body>
+</html>
